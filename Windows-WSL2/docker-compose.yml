@@ -7,7 +7,7 @@ services:
       - "8083:8083"
       - "8086:8086"
     volumes:
-      - /c/tigdemo/telegraf-influxdb-grafana:/var/lib/influxdb
+      - ./vols/:/var/lib/influxdb
     restart: always
 
   grafana:
@@ -26,6 +26,6 @@ services:
       - "57000:57000"
     network_mode: "host"
     volumes:
-      - /c/cisco-mdt-tig/Cisco-MDT-TIG-Docker/Windows-WSL2/conf/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+      - ./conf/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
