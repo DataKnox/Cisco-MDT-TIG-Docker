@@ -26,6 +26,6 @@ services:
       - "57000:57000"
     network_mode: "host"
     volumes:
-      - /mnt/c/tigdemo/telegraf-influxdb-grafana/conf/telegraf/telegraf.conf:/home/core/conf/telegraf/telegraf.conf
+      - /c/cisco-mdt-tig/Cisco-MDT-TIG-Docker/Windows-WSL2/conf/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
