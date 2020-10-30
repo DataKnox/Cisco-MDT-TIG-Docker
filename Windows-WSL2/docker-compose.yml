@@ -23,6 +23,8 @@ services:
     container_name: telegraf
     image: telegraf:latest    
     network_mode: "host"
+    ports:
+      - "57000:57000"
     volumes:
       - ./conf/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
       - /var/run/docker.sock:/var/run/docker.sock
