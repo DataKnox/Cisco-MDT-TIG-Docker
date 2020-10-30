@@ -7,7 +7,7 @@ services:
       - "8083:8083"
       - "8086:8086"
     volumes:
-      - /c/tigdemo/telegraf-influxdb-grafana:/var/lib/influxdb
+      - /home/core/volumes/influxdb:/var/lib/influxdb
     restart: always
 
   grafana:
@@ -22,8 +22,10 @@ services:
   telegraf:
     container_name: telegraf
     image: telegraf:1.3.3
+    ports:
+      - "57000:57000"
     network_mode: "host"
     volumes:
-      - /mnt/c/tigdemo/telegraf-influxdb-grafana/conf/telegraf/telegraf.conf:/home/core/conf/telegraf/telegraf.conf
+      - /etc/telegraf/telegraf.conf:/home/core/conf/telegraf/telegraf.conf
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
