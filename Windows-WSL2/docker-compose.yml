@@ -21,9 +21,7 @@ services:
 
   telegraf:
     container_name: telegraf
-    image: telegraf:latest
-    ports:
-      - "57000:57000"
+    image: telegraf:latest    
     network_mode: "host"
     volumes:
       - ./conf/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
