@@ -1,0 +1,29 @@
+version: "2"
+services:
+  influxdb:
+    container_name: influxdb
+    image: influxdb:1.0.2
+    ports:
+      - "8083:8083"
+      - "8086:8086"
+    volumes:
+      - /c/tigdemo/telegraf-influxdb-grafana:/var/lib/influxdb
+    restart: always
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:4.3.2
+    ports:
+      - "3000:3000"
+    links:
+      - influxdb
+    restart: always
+
+  telegraf:
+    container_name: telegraf
+    image: telegraf:1.3.3
+    network_mode: "host"
+    volumes:
+      - /mnt/c/tigdemo/telegraf-influxdb-grafana/conf/telegraf/telegraf.conf:/home/core/conf/telegraf/telegraf.conf
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
