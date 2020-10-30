@@ -1,14 +1,14 @@
-# Cisco-MDT-TIG-Docker
-Docker Container deployment of TIG stack with Cisco MDT inputs prepped for Telegraf
+# Introduction
+This repo contains a Docker Compose file that can spin up 3 containers - Telegraf, InfluxDB, and Grafana. This is geared towards Cisco because it comes with the Cisco Model-Driven-Telemetry inputs for Telegraf.
 
-# Clone the repo
-
+# Steps to Get It Up and Running
+1. Clone the Repo
 ```
 git clone https://github.com/DataKnox/Cisco-MDT-TIG-Docker
 ```
 
-# Edit the Telegraf.conf file to have the IP Address of the computer that will have the InfluxDB
-# Edit the URLs line
+2. Edit the Telegraf.conf file to have the IP Address of the computer that will have the InfluxDB
+- Edit the URLs line
 ```
 # Outputs for ciscomdt
 [[outputs.influxdb]]
@@ -18,17 +18,17 @@ git clone https://github.com/DataKnox/Cisco-MDT-TIG-Docker
   password = "password123"
 ```
 
-# Change into the directory that contains the Docker-Compose.yml file
-# EXAMPLE on my computer
+3. Change into the directory that contains the Docker-Compose.yml file
+EXAMPLE on my computer
 ```
 cd /home/knox/Documents/ciscomdt/Cisco-MDT-TIG-Docker/Ubuntu
 ```
-# Bring the containers to life
+4. Bring the containers to life
 ```
 docker-compose up
 ```
 
-# Enable streaming telemetry on IOS-XE - CHANGE YOUR IP ADDRESSES!
+5. Enable streaming telemetry on IOS-XE - CHANGE YOUR IP ADDRESSES!
 ```
 telemetry ietf subscription 1
  encoding encode-kvgpb
@@ -48,13 +48,13 @@ telemetry ietf subscription 2
 netconf-yang
 end
 ```
-# Login to Grafana and connect to InfluxDB
+6. Login to Grafana and connect to InfluxDB
 
 http://localhost:3000
 
 default user and pw is 'admin'
 
-# Add a database
+7. Add a database
 Find influxDB from the list
 Name: whatever you want
 Query Language: InfluxQL
@@ -67,4 +67,8 @@ password: password123
 
 Save and Test
 
-# Create a dashboard!
+8. Create a dashboard!
+
+# Additional Sites and Links
+- TIG Stack Documentation: https://www.influxdata.com/
+- Cisco MDT Docs: https://github.com/influxdata/telegraf/tree/master/plugins/inputs/cisco_telemetry_mdt
