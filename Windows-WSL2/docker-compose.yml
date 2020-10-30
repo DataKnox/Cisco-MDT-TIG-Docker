@@ -22,7 +22,6 @@ services:
   telegraf:
     container_name: telegraf
     image: telegraf:latest    
-    network_mode: "host"
     ports:
       - "57000:57000"
     volumes:
