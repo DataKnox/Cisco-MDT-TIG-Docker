@@ -55,15 +55,15 @@ http://localhost:3000
 default user and pw is 'admin'
 
 7. Add a database
-Find influxDB from the list
-Name: whatever you want
-Query Language: InfluxQL
-URL: http://localhost:8086/
-Access: Browser
-Influx DB Details:
-Database: cisco_mdt
-user: telegraf
-password: password123
+- Find influxDB from the list
+- Name: whatever you want
+- Query Language: InfluxQL
+- URL: http://localhost:8086/
+- Access: Browser
+- Influx DB Details:
+- Database: cisco_mdt
+- user: telegraf
+- password: password123
 
 Save and Test
 
