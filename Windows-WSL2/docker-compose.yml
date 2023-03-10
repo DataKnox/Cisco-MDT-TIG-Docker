@@ -6,6 +6,13 @@ services:
     ports:
       - "8083:8083"
       - "8086:8086"
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=password123
+      - DOCKER_INFLUXDB_INIT_ORG=CBTNUGGETS-DEMO
+      - DOCKER_INFLUXDB_INIT_BUCKET=CBTNUGGETS-DEMO-BUCKET
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=veryverysecuretoken
     volumes:
       - ./vols/:/var/lib/influxdb
     restart: always
@@ -24,6 +31,8 @@ services:
     image: telegraf:latest 
     ports:
       - "57000:57000"   
+    environment:
+      - INFLUXDB_TOKEN=veryverysecuretoken
     links:
       - influxdb
     volumes:
