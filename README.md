@@ -39,7 +39,7 @@ nano conf/telegraf/telegraf.conf
 
 4. Bring the containers to life
 ```
-docker-compose up
+docker-compose up -d
 ```
 
 5. Enable streaming telemetry on IOS-XE - CHANGE YOUR IP ADDRESSES WHERE INDICATED!
